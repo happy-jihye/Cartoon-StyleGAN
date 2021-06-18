@@ -36,7 +36,6 @@ google_drive_paths = {
     "Disney_FreezeSG.pt" : "https://drive.google.com/uc?id=1PJaNozfJYyQ1ChfZiU2RwJqGlOurgKl7",
     "Disney_StructureLoss.pt" : "https://drive.google.com/uc?id=1PILW-H4Q0W8S22TO4auln1Wgz8cyroH6",
     
-    "Metface.pt" : "https://drive.google.com/uc?id=1z51gxECweWXqSYQxZJaHOJ4TtjUDGLxA",
     "Metface_FreezeSG.pt" : "https://drive.google.com/uc?id=1P5T6DL3Cl8T74HqYE0rCBQxcq15cipuw",
     "Metface_StructureLoss.pt" : "https://drive.google.com/uc?id=1P65UldIHd2QfBu88dYdo1SbGjcDaq1YL",
 }
