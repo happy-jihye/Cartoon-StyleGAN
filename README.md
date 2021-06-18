@@ -2,11 +2,11 @@
 
 > Recent studies have shown remarkable success in the unsupervised image to image (I2I) translation. However, due to the imbalance in the data, learning joint distribution for various domains is still very challenging. Although existing models can generate realistic target images, it’s difficult to maintain the structure of the source image. In addition, training a generative model on large data in multiple domains requires a lot of time and computer resources. To address these limitations, I propose a novel image-to-image translation method that generates images of the target domain by finetuning a stylegan2 pretrained model. The stylegan2 model is suitable for unsupervised I2I translation on unbalanced datasets; it is highly stable, produces realistic images, and even learns properly from limited data when applied with simple fine-tuning techniques. Thus, in this project, I propose new methods to preserve the structure of the source images and generate realistic images in the target domain.
 
-<p align='center'><img src="https://github.com/happy-jihye/Cartoon-StyleGan2/blob/master/asset/images/Result.gif?raw=1" width = '700'></p>
+<p align='center'><img src="https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/Result.gif?raw=1" width = '700'></p>
 
 **Inference Notebook**
 
-🎉 You can do this task in colab ! : [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/happy-jihye/Cartoon-StyleGan2/blob/master/Cartoon_StyleGAN2.ipynb)
+🎉 You can do this task in colab ! : [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/happy-jihye/Cartoon-StyleGan2/blob/main/Cartoon_StyleGAN2.ipynb)
 
 ---
 
@@ -14,48 +14,48 @@
 
 ### Baseline : StyleGAN2-ADA + FreezeD
 
-<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/master/asset/images/baseline.PNG?raw=1' width = '700' ></p>
+<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/baseline.PNG?raw=1' width = '700' ></p>
 
 It generates realistic images, but does not maintain the structure of the source domain.
 
 
 |      |      |
 | ---- | ---- |
-| <img src="https://github.com/happy-jihye/Cartoon-StyleGan2/blob/master/asset/images/baseline-rom101.gif?raw=1">  |     <img  src="https://github.com/happy-jihye/Cartoon-StyleGan2/blob/master/asset/images/baseline-simpson.gif?raw=1">   |
+| <img src="https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/baseline-rom101.gif?raw=1">  |     <img  src="https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/baseline-simpson.gif?raw=1">   |
 
 
 ### Ours : FreezeSG (Freeze Style vector and Generator)
 
-<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/master/asset/images/latent.PNG?raw=1' width = '800' ></p>
+<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/latent.PNG?raw=1' width = '800' ></p>
 
 [FreezeG](https://github.com/bryandlee/FreezeG) is effective in maintaining the structure of the source image. As a result of various experiments, I found that not only the initial layer of the generator but also the initial layer of the style vector are important for maintaining the structure. Thus, I froze the low-resolution layer of both the generator and the style vector.
 
 
 **Freeze Style vector and Generator**
-<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/master/asset/images/FreezeSG.PNG?raw=1' width = '800' ></p>
+<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/FreezeSG.PNG?raw=1' width = '800' ></p>
 
 **Results**
-<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/master/asset/images/FreezeSG2.PNG?raw=1' width = '800' ></p>
+<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/FreezeSG2.PNG?raw=1' width = '800' ></p>
 
 **With [Layer Swapping](https://arxiv.org/abs/2010.05334)**
 
 When LS is applied, the generated images by FreezeSG have a higher similarity to the source image than when FreezeG or the baseline (FreezeD + ADA) were used. However, since this fixes the weights of the low-resolution layer of the generator, it is difficult to obtain meaningful results when layer swapping on the low-resolution layer.
-<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/master/asset/images/FreezeSG3.png?raw=1' width = '800' ></p>
+<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/FreezeSG3.png?raw=1' width = '800' ></p>
 
 ### Ours : Structure Loss
 
 Based on the fact that the structure of the image is determined at low resolution, we apply structure loss to the values of the low-resolution layer so that the generated image is similar to the image in the source domain. The structure loss makes the RGB output of the source generator to be fine-tuned to have a similar value with the RGB output of the target generator during training.
 
-<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/master/asset/images/StructureLoss.png?raw=1' width = '700' ></p>
-<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/master/asset/images/StructureLoss2.PNG?raw=1' width = '700' ></p>
+<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/StructureLoss.png?raw=1' width = '700' ></p>
+<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/StructureLoss2.PNG?raw=1' width = '700' ></p>
 
 **Results**
 
-<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/master/asset/images/StructureLoss3.PNG?raw=1' width = '700' ></p>
-<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/master/asset/images/StructureLoss4.png?raw=1' width = '700' ></p>
+<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/StructureLoss3.PNG?raw=1' width = '700' ></p>
+<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/StructureLoss4.png?raw=1' width = '700' ></p>
 
 ### Compare
-<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/master/asset/images/compare.PNG?raw=1' width = '700' ></p>
+<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/compare.PNG?raw=1' width = '700' ></p>
 
 ---
 ## 2. Application : Change Facial Expression / Pose
@@ -67,41 +67,41 @@ I applied various models(ex. Indomain-GAN, SeFa, StyleCLIP…) to change facial 
 - [Closed-Form Factorization of Latent Semantics in GANs](https://arxiv.org/abs/2007.06600)
 
 **Pose**
-<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/master/asset/images/sefa-pose.gif?raw=1' width = '700' ></p>
+<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/sefa-pose.gif?raw=1' width = '700' ></p>
 
 **Slim Face**
-<p align='center'><img src="https://github.com/happy-jihye/Cartoon-StyleGan2/blob/master/asset/images/sefa.gif?raw=1" width = '700'></p>
+<p align='center'><img src="https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/sefa.gif?raw=1" width = '700'></p>
 
 ### (2) StyleCLIP – Latent Optimization
 
-<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/master/asset/images/styleclip.PNG?raw=1' width = '700' ></p>
+<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/styleclip.PNG?raw=1' width = '700' ></p>
 
 Inspired by [StyleCLIP](https://arxiv.org/abs/2103.17249) that manipulates generated images with text, we change the faces of generated
 cartoon characters by text. We used the latent optimization method among the three methods of StyleCLIP and additionally introduced styleclip strength. It allows the latent vector to linearly move in the direction of the optimized latent vector, making the image change better with text.
 
 **with baseline model(FreezeD)**
-<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/master/asset/images/styleclip2.PNG?raw=1' width = '700' ></p>
-<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/master/asset/images/styleclip5.PNG?raw=1' width = '700' ></p>
+<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/styleclip2.PNG?raw=1' width = '700' ></p>
+<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/styleclip5.PNG?raw=1' width = '700' ></p>
 
 **with our model(structureLoss)**
-<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/master/asset/images/styleclip3.PNG?raw=1' width = '700' ></p>
-<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/master/asset/images/styleclip4.PNG?raw=1' width = '700' ></p>
+<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/styleclip3.PNG?raw=1' width = '700' ></p>
+<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/styleclip4.PNG?raw=1' width = '700' ></p>
 
 
 ### (3) Style Mixing
 
 Style-Mixing
-<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/master/asset/images/stylemixing5.png?raw=1' width = '700' ></p>
+<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/stylemixing5.png?raw=1' width = '700' ></p>
 
 When mixing layers, I found specifics layers that make a face. While the overall structure (hair style, facial shape, etc.) and texture (skin color and texture) were maintained, only the face(eyes, nose and mouth) was changed.
 
-<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/master/asset/images/stylemixing.PNG?raw=1' width = '700' ></p>
-<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/master/asset/images/stylemixing2.PNG?raw=1' width = '700' ></p>
+<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/stylemixing.PNG?raw=1' width = '700' ></p>
+<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/stylemixing2.PNG?raw=1' width = '700' ></p>
 
 **Results**
 
-<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/master/asset/images/stylemixing3.PNG?raw=1' width = '700' ></p>
-<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/master/asset/images/stylemixing4.PNG?raw=1' width = '700' ></p>
+<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/stylemixing3.PNG?raw=1' width = '700' ></p>
+<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/stylemixing4.PNG?raw=1' width = '700' ></p>
 
 
 ---
@@ -151,7 +151,7 @@ We experimented with a variety of datasets, including Naver Webtoon, Metfaces, a
 
 [NaverWebtoon Dataset](https://www.webtoons.com/en/) contains facial images of webtoon characters serialized on Naver. We made this dataset by crawling webtoons from Naver’s webtoons site and cropping the faces to 256 x 256 sizes. There are about 15 kinds of webtoons and 8,000 images. We trained the entire Naver Webtoon dataset, and we also trained each webtoon in this experiment
 
-<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/master/asset/images/naverwebtoon_dataset.PNG?raw=1' width = '600' ></p>
+<p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/naverwebtoon_dataset.PNG?raw=1' width = '600' ></p>
 
 I was also allowed to share a pretrained model with writers permission to use datasets. Thank you for the writers ([Yaongyi](https://www.webtoons.com/en/romance/truebeauty/list?title_no=1436&page=1), [Namsoo](https://www.webtoons.com/en/romance/romance-101/list?title_no=2406&page=1), [justinpinkney](https://github.com/justinpinkney/toonify)) who gave us permission.
 
@@ -185,7 +185,7 @@ python train.py --batch BATCH_SIZE LMDB_PATH
 
 # Distributed Settings
 python train.py --batch BATCH_SIZE --path LMDB_PATH \
-    -m torch.distributed.launch --nproc_per_node=N_GPU --master_port=PORT
+    -m torch.distributed.launch --nproc_per_node=N_GPU --main_port=PORT
 ```
 
 **Options**
