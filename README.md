@@ -44,7 +44,7 @@ When LS is applied, the generated images by FreezeSG have a higher similarity to
 
 ### Ours : Structure Loss
 
-Based on the fact that the structure of the image is determined at low resolution, we apply structure loss to the values of the low-resolution layer so that the generated image is similar to the image in the source domain. The structure loss makes the RGB output of the source generator to be fine-tuned to have a similar value with the RGB output of the target generator during training.
+Based on the fact that the structure of the image is determined at low resolution, I apply structure loss to the values of the low-resolution layer so that the generated image is similar to the image in the source domain. The structure loss makes the RGB output of the source generator to be fine-tuned to have a similar value with the RGB output of the target generator during training.
 
 <p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/StructureLoss.png?raw=1' width = '700' ></p>
 <p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/StructureLoss2.PNG?raw=1' width = '700' ></p>
@@ -76,8 +76,8 @@ I applied various models(ex. Indomain-GAN, SeFa, StyleCLIP…) to change facial 
 
 <p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/styleclip.PNG?raw=1' width = '700' ></p>
 
-Inspired by [StyleCLIP](https://arxiv.org/abs/2103.17249) that manipulates generated images with text, we change the faces of generated
-cartoon characters by text. We used the latent optimization method among the three methods of StyleCLIP and additionally introduced styleclip strength. It allows the latent vector to linearly move in the direction of the optimized latent vector, making the image change better with text.
+Inspired by [StyleCLIP](https://arxiv.org/abs/2103.17249) that manipulates generated images with text, I change the faces of generated
+cartoon characters by text. I used the latent optimization method among the three methods of StyleCLIP and additionally introduced styleclip strength. It allows the latent vector to linearly move in the direction of the optimized latent vector, making the image change better with text.
 
 **with baseline model(FreezeD)**
 <p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/styleclip2.PNG?raw=1' width = '700' ></p>
@@ -147,9 +147,9 @@ If you want to download all of the pretrained model, you can use `download_pretr
 
 **Dataset**
 
-We experimented with a variety of datasets, including Naver Webtoon, Metfaces, and Disney. 
+I experimented with a variety of datasets, including Naver Webtoon, Metfaces, and Disney. 
 
-[NaverWebtoon Dataset](https://www.webtoons.com/en/) contains facial images of webtoon characters serialized on Naver. We made this dataset by crawling webtoons from Naver’s webtoons site and cropping the faces to 256 x 256 sizes. There are about 15 kinds of webtoons and 8,000 images. We trained the entire Naver Webtoon dataset, and we also trained each webtoon in this experiment
+[NaverWebtoon Dataset](https://www.webtoons.com/en/) contains facial images of webtoon characters serialized on Naver. I made this dataset by crawling webtoons from Naver’s webtoons site and cropping the faces to 256 x 256 sizes. There are about 15 kinds of webtoons and 8,000 images. I trained the entire Naver Webtoon dataset, and I also trained each webtoon in this experiment
 
 <p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/naverwebtoon_dataset.PNG?raw=1' width = '600' ></p>
 
