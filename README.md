@@ -1,5 +1,7 @@
 # Cartoon-StyleGan2 🙃 : Fine-tuning StyleGAN2 for Cartoon Face Generation
 
+> **Abstract**
+>
 > Recent studies have shown remarkable success in the unsupervised image to image (I2I) translation. However, due to the imbalance in the data, learning joint distribution for various domains is still very challenging. Although existing models can generate realistic target images, it’s difficult to maintain the structure of the source image. In addition, training a generative model on large data in multiple domains requires a lot of time and computer resources. To address these limitations, I propose a novel image-to-image translation method that generates images of the target domain by finetuning a stylegan2 pretrained model. The stylegan2 model is suitable for unsupervised I2I translation on unbalanced datasets; it is highly stable, produces realistic images, and even learns properly from limited data when applied with simple fine-tuning techniques. Thus, in this project, I propose new methods to preserve the structure of the source images and generate realistic images in the target domain.
 
 <p align='center'><img src="https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/Result.gif?raw=1" width = '700'></p>
@@ -7,6 +9,9 @@
 **Inference Notebook**
 
 🎉 You can do this task in colab ! : [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/happy-jihye/Cartoon-StyleGan2/blob/main/Cartoon_StyleGAN2.ipynb)
+
+**Arxiv**
+[![arXiv](https://img.shields.io/badge/arXiv-2010.05334-b31b1b.svg)](https://arxiv.org/abs/2106.12445)
 
 ---
 
