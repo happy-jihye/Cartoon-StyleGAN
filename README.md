@@ -1,4 +1,4 @@
-# Cartoon-StyleGan2 🙃 : Fine-tuning StyleGAN2 for Cartoon Face Generation
+# Cartoon-StyleGAN 🙃 : Fine-tuning StyleGAN2 for Cartoon Face Generation
 
 > **Abstract**
 >
