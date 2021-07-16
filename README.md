@@ -218,7 +218,19 @@ python train.py --batch BATCH_SIZE --path LMDB_PATH \
     # ex) python apply_factor.py -i 19 -d 5 -n 10 --ckpt [CHECKPOINT] factor.pt
     ```
 
+---
 
+**StyleGAN2-ada + FreezeD**
+
+During the experiment, I also carried out a task to generate a cartoon image based on Nvidia Team's StyleGAN2-ada code. When training these models, I didn't control the dataset resolution(256). So the quality of the generated image can be broken. 
+
+You can practice based on this code at Colab : [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/happy-jihye/Cartoon-StyleGan2/blob/main/stylegan2_ada_freezeD.ipynb)
+
+|  multi-image   |  Interpolation    |
+| ---- | ---- |
+| <img src="https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/stylegan2ada-sim-image.png?raw=1">  |     <img  src="https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/stylegan2ada-sim-interpolation.gif?raw=1">   |
+| <img src="https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/stylegan2ada-love-multi.png?raw=1">  |     <img  src="https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/stylegan2ada-love-interpolation.gif?raw=1">   |
+| <img src="https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/stylegan2ada-rom-multi.png?raw=1">  |     <img  src="https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/stylegan2ada-rom-interpolation.gif?raw=1">   |
 
 ## Reference
 
