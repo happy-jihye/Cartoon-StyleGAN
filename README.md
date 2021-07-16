@@ -220,9 +220,9 @@ python train.py --batch BATCH_SIZE --path LMDB_PATH \
 
 ---
 
-**StyleGAN2-ada + FreezeD**
+## StyleGAN2-ada + FreezeD
 
-During the experiment, I also carried out a task to generate a cartoon image based on Nvidia Team's StyleGAN2-ada code. When training these models, I didn't control the dataset resolution(256). So the quality of the generated image can be broken. 
+During the experiment, I also carried out a task to generate a cartoon image based on [Nvidia Team's StyleGAN2-ada code](https://github.com/NVlabs/stylegan2-ada-pytorch). When training these models, I didn't control the dataset resolution(256). So the quality of the generated image can be broken. 
 
 You can practice based on this code at Colab : [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/happy-jihye/Cartoon-StyleGan2/blob/main/stylegan2_ada_freezeD.ipynb)
 
