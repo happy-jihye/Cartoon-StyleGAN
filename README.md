@@ -13,7 +13,7 @@
 **Arxiv**
 [![arXiv](https://img.shields.io/badge/arXiv-2010.05334-b31b1b.svg)](https://arxiv.org/abs/2106.12445)
 
-**2021.08.21 Add Streamlit Ver !**
+**[NEW!] 2021.08.30 Streamlit Ver**
 - [`cartoon-stylegan streamlit inference repo`](https://github.com/happy-jihye/Streamlit-Tutorial/tree/main/cartoon-stylegan)
 <p align='center'><img src="https://github.com/happy-jihye/Streamlit-Tutorial/blob/main/asset/cartoon-stylegan-1.gif?raw=1?raw=1" width = '700'></p>
 
