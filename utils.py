@@ -1,21 +1,6 @@
 import os
-import shutil
-
-import random
-import numpy as np
-
 import torch
-from torch import nn
-import torch.nn.functional as F
-
-import torchvision
-from torchvision import datasets, transforms
-
-from model import Generator, Encoder
-
-from PIL import Image
 import matplotlib.pyplot as plt
-import tqdm
 
 
 google_drive_paths = {
@@ -51,24 +36,16 @@ def download_pretrained_model(download_all=True, file=''):
         for nn in google_drive_paths:
             url = google_drive_paths[nn]
             networkfile = os.path.join('networks', nn)
-            try: 
-                drive_download(url, networkfile, quiet=False)
+            drive_download(url, networkfile, quiet=False)
 
-            except ModuleNotFoundError:
-                print(
-                    "gdown module not found.",
-                    "pip3 install gdown or, manually download the checkpoint file:",
-                    gdrive_url
-                )
     else:
         url = google_drive_paths[file]
         networkfile = os.path.join('networks', file)
 
         drive_download(url, networkfile, quiet=False)
         
-
-
 # ---------------
+# for styleclip
 
 def ensure_checkpoint_exists(model_weights_filename):
     if not os.path.isfile(model_weights_filename) and (
@@ -93,8 +70,6 @@ def ensure_checkpoint_exists(model_weights_filename):
             model_weights_filename,
             " not found, you may need to manually download the model weights."
         )
-
-
 # ========================================
 
 def make_image(tensor):
