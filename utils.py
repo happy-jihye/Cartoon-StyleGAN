@@ -1,7 +1,7 @@
 import os
 import torch
 import matplotlib.pyplot as plt
-
+import math
 
 google_drive_paths = {
 
@@ -44,7 +44,7 @@ def download_pretrained_model(download_all=True, file=''):
 
         drive_download(url, networkfile, quiet=False)
         
-<<<<<<< HEAD
+
 # ---------------
 # for styleclip
 
@@ -73,7 +73,7 @@ def ensure_checkpoint_exists(model_weights_filename):
         )
 =======
 
->>>>>>> 5d770836e308138df914a85908b88e1e41c10ac5
+
 # ========================================
 
 def make_image(tensor):
