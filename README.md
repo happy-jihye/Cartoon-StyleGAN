@@ -159,7 +159,7 @@ If you want to download all of the pretrained model, you can use `download_pretr
 
 I experimented with a variety of datasets, including Naver Webtoon, Metfaces, and Disney. 
 
-[NaverWebtoon Dataset](https://www.webtoons.com/en/) contains facial images of webtoon characters serialized on Naver. I made this dataset by [crawling webtoons from Naver’s webtoons site](https://happy-jihye.github.io/notebook/python-3/) and [cropping the faces](https://github.com/nagadomi/lbpcascade_animeface) to 256 x 256 sizes. There are about 15 kinds of webtoons and 8,000 images. I trained the entire Naver Webtoon dataset, and I also trained each webtoon in this experiment
+[NaverWebtoon Dataset](https://www.webtoons.com/en/) contains facial images of webtoon characters serialized on Naver. I made this dataset by [crawling webtoons from Naver’s webtoons site](https://happy-jihye.github.io/notebook/python-3/) and [cropping the faces](https://github.com/nagadomi/lbpcascade_animeface) to 256 x 256 sizes. There are about 15 kinds of webtoons and 8,000 images(not aligned). I trained the entire Naver Webtoon dataset, and I also trained each webtoon in this experiment
 
 <p align='center'><img src='https://github.com/happy-jihye/Cartoon-StyleGan2/blob/main/asset/images/naverwebtoon_dataset.PNG?raw=1' width = '600' ></p>
 
